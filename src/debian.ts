@@ -5,6 +5,7 @@ SPDX-License-Identifier: MIT
 
 import * as fs from "fs";
 import { extractData } from "./parser";
+import { isWildcardMatch } from "./wildcard";
 
 /**
  * Debian Copyright Header
@@ -76,9 +77,12 @@ export class DebianCopyright implements IDebianCopyright {
   header: IHeader;
   files: IFile[];
 
-  constructor(header: IHeader = {
-    format: "https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/"
-  }, files: IFile[] = []) {
+  constructor(
+    header: IHeader = {
+      format: "https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/",
+    },
+    files: IFile[] = []
+  ) {
     this.header = header;
     this.files = files;
   }
@@ -98,6 +102,19 @@ export class DebianCopyright implements IDebianCopyright {
       DebianHeader.fromParagraph(paragraphs[0]),
       paragraphs.splice(1).map(paragraph => DebianFile.fromParagraph(paragraph))
     );
+  }
+
+  /**
+   * Returns the File stanza which matches the given file
+   * @param file File to match
+   * @returns File stanza which matches the given file
+   */
+  getFileStanza(file: string): IFile | undefined {
+    for (const stanza of this.files) {
+      if (stanza.files.some(pattern => isWildcardMatch(file, pattern))) {
+        return stanza;
+      }
+    }
   }
 }
 

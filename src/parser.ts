@@ -108,7 +108,6 @@ export function* extractData(paragraph: string): Generator<IValue> {
     const match = generateToken(line);
     if (!match) {
       if (currentData && currentToken) {
-        console.log(currentData, line);
         switch (currentToken) {
           case "Formatted text":
             if (typeof currentData.data === "string") {
