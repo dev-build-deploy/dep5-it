@@ -1,0 +1,61 @@
+{
+  "header": {
+    "format": "http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/",
+    "upstreamName": "Planet Venus",
+    "upstreamContact": [
+      "John Doe <jdoe@example.com>"
+    ],
+    "source": "http://www.example.com/code/venus"
+  },
+  "files": [
+    {
+      "files": [
+        "*"
+      ],
+      "copyright": "2008, John Doe <jdoe@example.com>\n2007, Jane Smith <jsmith@example.org>\n2007, Joe Average <joe@example.org>\n2007, J. Random User <jr@users.example.com>",
+      "license": "PSF-2\n[LICENSE TEXT]"
+    },
+    {
+      "files": [
+        "debian/*"
+      ],
+      "copyright": "2008, Dan Developer <dan@debian.example.com>",
+      "license": "permissive\nCopying and distribution of this package, with or without\nmodification, are permitted in any medium without royalty\nprovided the copyright notice and this notice are\npreserved."
+    },
+    {
+      "files": [
+        "debian/patches/theme-diveintomark.patch"
+      ],
+      "copyright": "2008, Joe Hacker <hack@example.org>",
+      "license": "GPL-2+\n[LICENSE TEXT]"
+    },
+    {
+      "files": [
+        "planet/vendor/compat_logging/*"
+      ],
+      "copyright": "2002, Mark Smith <msmith@example.org>",
+      "license": "MIT\n[LICENSE TEXT]"
+    },
+    {
+      "files": [
+        "planet/vendor/httplib2/*"
+      ],
+      "copyright": "2006, John Brown <brown@example.org>",
+      "license": "MIT2\nUnspecified MIT style license."
+    },
+    {
+      "files": [
+        "planet/vendor/feedparser.py"
+      ],
+      "copyright": "2007, Mike Smith <mike@example.org>",
+      "license": "PSF-2\n[LICENSE TEXT]"
+    },
+    {
+      "files": [
+        "planet/vendor/htmltmpl.py"
+      ],
+      "copyright": "2004, Thomas Brown <coder@example.org>",
+      "license": "GPL-2+\nThis program is free software; you can redistribute it\nand/or modify it under the terms of the GNU General Public\nLicense as published by the Free Software Foundation; either\nversion 2 of the License, or (at your option) any later\nversion.\n.\nThis program is distributed in the hope that it will be\nuseful, but WITHOUT ANY WARRANTY; without even the implied\nwarranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR\nPURPOSE.  See the GNU General Public License for more\ndetails.\n.\nYou should have received a copy of the GNU General Public\nLicense along with this package; if not, write to the Free\nSoftware Foundation, Inc., 51 Franklin St, Fifth Floor,\nBoston, MA  02110-1301 USA\n.\nOn Debian systems, the full text of the GNU General Public\nLicense version 2 can be found in the file\n`/usr/share/common-licenses/GPL-2'."
+    }
+  ]
+}

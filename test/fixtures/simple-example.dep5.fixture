@@ -1,0 +1,17 @@
+{
+  "header": {
+    "format": "https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/",
+    "source": "ftp://ftp.example.com/pub/games",
+    "upstreamName": "X Solitaire"
+  },
+  "files": [
+    {
+      "files": [
+        "*"
+      ],
+      "copyright": "1998 John Doe <jdoe@example.com>\n1998 Jane Smith <jsmith@example.net>",
+      "license": "GPL-2+\nThis program is free software; you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation; either version 2 of the License, or\n(at your option) any later version.\n.\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n.\nYou should have received a copy of the GNU General Public License\nalong with this package; if not, see &lt;https://www.gnu.org/licenses/&gt;.",
+      "comment": "On Debian systems, the full text of the GNU General Public License\nversion 2 can be found in the file '/usr/share/common-licenses/GPL-2'."
+    }
+  ]
+}

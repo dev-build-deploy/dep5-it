@@ -1,0 +1,11 @@
+{
+  "header": {
+    "format": "https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/",
+    "upstreamName": "dep5-it",
+    "upstreamContact": [
+      "Kevin de Jong <monkaii@hotmail.com>"
+    ],
+    "source": "https://github.com/dev-build-deploy/dep5-it"
+  },
+  "files": []
+}
