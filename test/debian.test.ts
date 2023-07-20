@@ -7,7 +7,7 @@ import * as debian from "../src/index";
 import * as fs from "fs";
 
 /**
- * Validates the SPDX header of a file.
+ * Validates the Debian Copyright file parser.
  */
 describe("Debian Copyright", () => {
   test("Validate Files", async () => {
@@ -18,8 +18,21 @@ describe("Debian Copyright", () => {
       const file = `test/fixtures/${entry}`;
 
       const dep5 = debian.DebianCopyright.fromFile(file);
-      console.log(JSON.stringify(dep5, null, 2));
+
       expect(JSON.parse(JSON.stringify(dep5))).toStrictEqual(fixture);
     }
+  });
+
+  test("Retrieve File Stanza", async () => {
+    const file = `test/fixtures/basic-file.dep5`;
+
+    const dep5 = debian.DebianCopyright.fromFile(file);
+    const stanza = dep5.getFileStanza("test/fixtures/basic-file.dep5");
+
+    expect(JSON.parse(JSON.stringify(stanza))).toStrictEqual({
+      files: ["test/fixtures/*"],
+      copyright: "2023 Kevin de Jong <monkaii@hotmail.com>",
+      license: "MIT",
+    });
   });
 });

@@ -16,6 +16,8 @@ This can be valuable when extracting License and Copyright statements from the c
 
 ## Basic Usage
 
+### Parsing a Debian Copyright file
+
 ```typescript
 import { DebianCopyright } from "@dev-build-deploy/dep5-it";
 
@@ -26,7 +28,7 @@ const dep5 = DebianCopyright.fromFile(".reuse/dep5");
 console.log(JSON.stringify(dep5, null, 2));
 ```
 
-This will result in the following data structure;
+<details><summary>Example output</summary>
 
 ```JSON
 {
@@ -63,10 +65,40 @@ This will result in the following data structure;
   ]
 }
 ```
+</details>
+
+
+### Retrieve specific File Stanzas
+
+You can filter on the file stanza associated with the given file name:
+```typescript
+import { DebianCopyright } from "@dev-build-deploy/dep5-it";
+
+// Parse a .dep5 file
+const dep5 = DebianCopyright.fromFile(".reuse/dep5");
+
+// Retrieve specific File Stanza
+const fileStanza = dep5.getFileStanza("test/fixtures/basic-file.dep5.fixture");
+
+console.log(JSON.stringify(fileStanza, null, 2));
+```
+
+<details><summary>Example output</summary>
+
+```JSON
+{
+  "files": [
+    "test/fixtures/*"
+  ],
+  "copyright": "2023 Kevin de Jong <monkaii@hotmail.com>",
+  "license": "MIT"
+}
+```
+</details>
 
 ## Contributing
 
-If you have suggestions for how `dep5-it`` could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
+If you have suggestions for how `dep5-it` could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
 
 For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
