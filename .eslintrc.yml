@@ -81,4 +81,3 @@ rules:
     - never
     - pattern:
         json: ignorePackages
-  
