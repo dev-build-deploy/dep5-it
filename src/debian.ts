@@ -4,6 +4,7 @@ SPDX-License-Identifier: MIT
 */
 
 import * as fs from "fs";
+
 import { extractData } from "./parser";
 import { isWildcardMatch } from "./wildcard";
 

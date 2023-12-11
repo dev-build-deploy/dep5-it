@@ -3,8 +3,9 @@ SPDX-FileCopyrightText: 2023 Kevin de Jong <monkaii@hotmail.com>
 SPDX-License-Identifier: MIT
 */
 
-import * as debian from "../src/index";
 import * as fs from "fs";
+
+import * as debian from "../src/index";
 
 /**
  * Validates the Debian Copyright file parser.
