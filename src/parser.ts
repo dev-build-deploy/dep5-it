@@ -79,7 +79,7 @@ function generateToken(line: string): Token | undefined {
     return {
       start: match.index,
       end: line.indexOf(":") + 1,
-      type: key as keyof typeof DebianTokens,
+      type: key,
     };
   }
 }
