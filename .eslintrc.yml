@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2023 Kevin de Jong <monkaii@hotmail.com>
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: CC0-1.0
 ---
 plugins:
   - jest
@@ -76,6 +76,19 @@ rules:
   semi: off
   "@typescript-eslint/type-annotation-spacing": error
   "@typescript-eslint/unbound-method": error
+  import/order:
+    - error
+    - groups:
+      - builtin
+      - external
+      - internal
+      - parent
+      - sibling
+      - index
+      newlines-between: always
+      alphabetize:
+        order: asc
+        caseInsensitive: true
   import/extensions: # see https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/extensions.md
     - error
     - never
