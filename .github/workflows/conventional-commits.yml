@@ -30,3 +30,4 @@ jobs:
         with:
           token: ${{ github.token }}
           include-commits: true
+          config: .github/.commit-me.json
