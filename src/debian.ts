@@ -110,12 +110,17 @@ export class DebianCopyright implements IDebianCopyright {
   }
 
   /**
-   * Returns the File stanza which matches the given file
+   * Returns the File stanza which matches the given file.
+   *
+   * Per the copyright-format 1.0 specification, "if multiple Files declarations match the same file,
+   * then only the last match counts", so the last matching stanza is returned.
+   *
    * @param file File to match
-   * @returns File stanza which matches the given file
+   * @returns The last File stanza which matches the given file
    */
   getFileStanza(file: string): IFile | undefined {
-    for (const stanza of this.files) {
+    for (let index = this.files.length - 1; index >= 0; index--) {
+      const stanza = this.files[index];
       if (stanza.files.some(pattern => isWildcardMatch(file, pattern))) {
         return stanza;
       }

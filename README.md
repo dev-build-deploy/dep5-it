@@ -70,7 +70,9 @@ console.log(JSON.stringify(dep5, null, 2));
 
 ### Retrieve specific File Stanzas
 
-You can filter on the file stanza associated with the given file name:
+You can filter on the file stanza associated with the given file name. As the [copyright-format 1.0] specification
+says, when several `Files` stanzas match a file, the **last** match counts, so put general patterns (`*`) first and
+specific ones after them:
 ```typescript
 import { DebianCopyright } from "@dev-build-deploy/dep5-it";
 
@@ -105,3 +107,5 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 ## License
 
 - [MIT](./LICENSES/MIT.txt) © 2023 Kevin de Jong \<monkaii@hotmail.com\>
+
+[copyright-format 1.0]: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
