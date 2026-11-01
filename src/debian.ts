@@ -96,7 +96,11 @@ export class DebianCopyright implements IDebianCopyright {
   static fromFile(file: string): DebianCopyright {
     const content = fs.readFileSync(file, "utf-8");
 
-    const paragraphs = content.split("\n\n").filter(paragraph => paragraph.trim().length > 0);
+    // Paragraphs are separated by one or more empty lines; lines with only whitespace count as empty (deb822)
+    const paragraphs = content
+      .replace(/\r\n/g, "\n")
+      .split(/\n[ \t]*\n/)
+      .filter(paragraph => paragraph.split("\n").some(line => line.trim().length > 0 && !line.startsWith("#")));
 
     // First paragraph MUST be the header.
     return new DebianCopyright(

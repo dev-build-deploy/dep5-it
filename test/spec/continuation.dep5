@@ -1,0 +1,20 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Comment: Keys only count at the start of a line.
+ This continuation line mentions License: GPL-3.0-only and
+ Copyright: 1999 Nobody, which are part of the comment.
+
+Files: src/*
+Copyright: 2023 Kevin de Jong <monkaii@hotmail.com>
+License: MIT
+ The License: and Copyright: words in this licence text
+ belong to the licence text.
+Comment: Generated, see the Files: list
+ and Source: hints in here.
+X-Unknown-Field: some value
+ Copyright: inside an unknown field is ignored.
+
+# A comment line, ignored by deb822 parsers
+Files: docs/* docs/*.md
+	tools/*
+Copyright: 2024 Docs Writer
+License: CC-BY-4.0
