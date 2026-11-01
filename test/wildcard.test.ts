@@ -18,6 +18,15 @@ describe("Wildcard", () => {
       ["bad-example.ts", "good-*.ts", false],
       ["bad-example.ts", "good-*.ts", false],
       ["good-example.ts", "good-example.ts", true],
+      ["src/deep/example.ts", "*.ts", true],
+      ["file1.txt", "file?.txt", true],
+      ["file10.txt", "file?.txt", false],
+      ["a/b", "a?b", true],
+      ["star*.txt", "star\\*.txt", true],
+      ["starry.txt", "star\\*.txt", false],
+      ["what?.txt", "what\\?.txt", true],
+      ["whats.txt", "what\\?.txt", false],
+      ["back\\slash", "back\\\\slash", true],
     ]) {
       expect(isWildcardMatch(value as string, pattern as string)).toBe(expectation);
     }
