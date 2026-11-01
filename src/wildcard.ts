@@ -12,7 +12,8 @@ SPDX-License-Identifier: MIT
  *   pattern *.in therefore matches any file whose name ends in .in anywhere in the source tree, not
  *   just at the top level.
  *
- * TODO: Implement support for the ? wildcard
+ * A backslash removes the special meaning of the next character: \* matches a literal asterisk,
+ * \? a literal question mark and \\ a literal backslash.
  *
  * @param fileName Filename to match
  * @param pattern Wildcard pattern to match against
@@ -22,10 +23,30 @@ SPDX-License-Identifier: MIT
 export function isWildcardMatch(fileName: string, pattern: string): boolean {
   if (pattern === "*") return true;
 
-  return new RegExp(
-    `^${pattern
-      .split("*")
-      .map(s => s.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&"))
-      .join(".*")}$`
-  ).test(fileName);
+  let expression = "";
+  for (let index = 0; index < pattern.length; index++) {
+    const char = pattern[index];
+    if (char === "\\" && index + 1 < pattern.length) {
+      index++;
+      expression += escapeRegExp(pattern[index]);
+    } else if (char === "*") {
+      expression += "[\\s\\S]*";
+    } else if (char === "?") {
+      expression += "[\\s\\S]";
+    } else {
+      expression += escapeRegExp(char);
+    }
+  }
+
+  return new RegExp(`^${expression}$`).test(fileName);
+}
+
+/**
+ * Escapes a character (or string) for use in a regular expression
+ * @param value Value to escape
+ * @returns The escaped value
+ * @internal
+ */
+function escapeRegExp(value: string): string {
+  return value.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
 }
