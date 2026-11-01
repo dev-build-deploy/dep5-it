@@ -1,0 +1,13 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: *
+Copyright: 2023 Generic Holder
+License: MIT
+
+Files: assets/*
+Copyright: 2023 Artist <artist@example.com>
+License: CC-BY-4.0
+
+Files: assets/logo.png
+Copyright: 2023 Logo Designer <logo@example.com>
+License: CC0-1.0

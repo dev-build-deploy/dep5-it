@@ -10,6 +10,15 @@ import * as debian from "../src/index";
  * (https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/).
  */
 describe("Debian copyright-format 1.0 conformance", () => {
+  test("The last matching Files paragraph wins", () => {
+    // "If multiple Files declarations match the same file, then only the last match counts."
+    const dep5 = debian.DebianCopyright.fromFile("test/spec/last-match.dep5");
+
+    expect(dep5.getFileStanza("assets/logo.png")?.license).toBe("CC0-1.0");
+    expect(dep5.getFileStanza("assets/tree.png")?.license).toBe("CC-BY-4.0");
+    expect(dep5.getFileStanza("src/index.ts")?.license).toBe("MIT");
+  });
+
   test("Keys only start at the beginning of a non-continuation line", () => {
     const dep5 = debian.DebianCopyright.fromFile("test/spec/continuation.dep5");
 
